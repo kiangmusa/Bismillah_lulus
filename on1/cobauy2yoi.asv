@@ -48,10 +48,9 @@ while(s~=0)
             Rk = R-centro;
             Rsum = sum(Rk.^2,1);
             hasil = sqrt(Rsum);
-            [urut,index]=sort(hasil);
-            %f = hasil(index(1));
-            %f = find(hasil(1,:)==min(hasil));
-            label(i,j)=index(1);
+            [hasil,l
+            f = find(hasil(1,:)==min(hasil));
+            label(i,j)=f(1,1);
         end
     end
     fin=[];
