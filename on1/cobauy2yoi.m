@@ -1,29 +1,32 @@
 clear;
 close all;
-asli = imread('fish.jpg');
+asli = imread('meses.jpg');
 % figure
 % imshow(asli,[])
 baris = size(asli,1);
 kolom = size(asli,2);
 asli=double(asli);
-Kl = 5;
-% for i=1:baris
-%     for j=1:kolom
-%         R = (asli(i,j,1)/2)-20;
-%         G = (asli(i,j,1)/2)+30;
-%         B = (asli(i,j,1)/2)-10;
-%         asli(i,j,1) = uint8(R);
-%         asli(i,j,2) = uint8(G);
-%         asli(i,j,3) = uint8(B);
-%     end
+Kl = 8;
+
+
+%%
+%centroid random
+%rans(1,1:Kl)=randi([1 baris],1,Kl);
+% rans(2,1:Kl)=randi([1 kolom],1,Kl);
+% centro=zeros(3,Kl);
+% for i=1:Kl
+%     centro(1,i)=asli(rans(1,i),rans(2,i),1);
+%     centro(2,i)=asli(rans(1,i),rans(2,i),2);
+%     centro(3,i)=asli(rans(1,i),rans(2,i),3);
 % end
-rans(1,1:Kl)=randi([1 baris],1,Kl);
-rans(2,1:Kl)=randi([1 kolom],1,Kl);
-centro=zeros(3,Kl);
+
+%%
+%centroid tetap dengan k = 8
+centro = zeros(3,Kl);
+first = -17;
 for i=1:Kl
-    centro(1,i)=asli(rans(1,i),rans(2,i),1);
-    centro(2,i)=asli(rans(1,i),rans(2,i),2);
-    centro(3,i)=asli(rans(1,i),rans(2,i),3);
+    centro(1:3,i)=first+32;
+    first = first+32;
 end
 vwx=centro;
 centro=double(centro);
