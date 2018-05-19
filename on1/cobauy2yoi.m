@@ -25,8 +25,8 @@ Kl = 8;
 centro = zeros(3,Kl);
 first = -17;
 for i=1:Kl
-    centro(1:3,i)=first+32;
     first = first+32;
+    centro(1:3,i)=first;
 end
 vwx=centro;
 centro=double(centro);
