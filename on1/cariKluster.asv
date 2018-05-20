@@ -13,4 +13,5 @@ Bx = kBx - kB;
 M = find(Mx(:)>=0);
 H = find(Hx(:)>=0);
 B = find(Bx(:)>=0);
-hasil = [M(length(M)) H(length(H)) B(1en(B)) ];
+M(length(M))+1 H(length(H))+1 B(length(B))+1
+hasil = [ ];

@@ -10,7 +10,20 @@ Mx = kMx - kM;
 Hx = kHx - kH;
 Bx = kBx - kB;
 
-M = find(Mx(:)>=0);
-H = find(Hx(:)>=0);
-B = find(Bx(:)>=0);
-hasil = [M(length(M))+1 H(length(H))+1 B(length(B))+1 ];
+Mi = find(Mx(:)>=0);
+Hi = find(Hx(:)>=0);
+Bi = find(Bx(:)>=0);
+Mi = Mi(length(Mi))+1; 
+Hi = Hi(length(Hi))+1;
+Bi = Bi(length(Bi))+1;
+if (Mi > A ) 
+    Mi = A;
+end
+if (Hi > B ) 
+    Hi = B;
+end
+if (Bi > C ) 
+    Bi = C;
+end
+
+hasil = [Mi Hi Bi];

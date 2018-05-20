@@ -1,2 +1,3 @@
-a(1:5,1)=4;
-a(1:5~=2,1)=7;
+clear;
+close all;
+asli = imread('contoh1.jpg');

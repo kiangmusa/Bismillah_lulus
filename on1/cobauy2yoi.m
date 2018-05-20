@@ -1,6 +1,7 @@
 clear;
 close all;
 asli = imread('contoh1.jpg');
+%asli = filtermedian(asli1,1);
 % figure
 % imshow(asli,[])
 baris = size(asli,1);
@@ -11,7 +12,7 @@ Kl = 8;
 
 %%
 %centroid random
-%rans(1,1:Kl)=randi([1 baris],1,Kl);
+% rans(1,1:Kl)=randi([1 baris],1,Kl);
 % rans(2,1:Kl)=randi([1 kolom],1,Kl);
 % centro=zeros(3,Kl);
 % for i=1:Kl

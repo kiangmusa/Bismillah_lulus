@@ -22,7 +22,7 @@ ncols = size(ac,2);
 %ab = reshape(ab,nrows*ncols,3);
 ac = reshape(ac,nrows*ncols,3);
 % No of clusters to be created with five iterations %
-nColors =5;
+nColors =8;
 [cluster_idx cluster_center] = kmeans(ac,nColors);
 % Reshaping and showing the clusters 
 pixel_labels = reshape(cluster_idx,nrows,ncols);

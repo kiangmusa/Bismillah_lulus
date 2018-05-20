@@ -1,12 +1,11 @@
-%function hasil = jarak(ww2)
-clear;
+function hasil = jarak(w1,w2)
+
 iM = [0 55 95 125 165 195 235 255];
 iH = [0 5 45 65 85 115 135 155 175 195 225 255];
 iB = [0 25 65 95 125 185 255];
 
-
-w1 = [220 165 79]; %warna 1
-w2 = [225 150 65]; %warna 2
+%  w1 = [253 244 63]; %warna 1
+%  w2 = [255 241 82]; %warna 2
 
 d1 = cariKluster(iM,iH,iB,w1); %fungsi menentukan letak kluster dr w1
 d2 = cariKluster(iM,iH,iB,w2); %fungsi menentukan letak kluster dr w2 
@@ -67,7 +66,7 @@ if (t) %jika t true, yang artinya elemen warna saling berdekatan klusternya
             jH = ((H2-H1) /(iH(d1(2))-iH(d1(2)-1)));
         else
             jH1 = (iH(d1(2))-H1) / (iH(d1(2))-iH(d1(2)-1));
-            jH2 = (H2-(iH(d2(2)-1))) / (iH(d2(2))-iM(d2(2)-1));
+            jH2 = (H2-(iH(d2(2)-1))) / (iH(d2(2))-iH(d2(2)-1));
             jH = jH1+jH2;
         end
     else
@@ -98,8 +97,8 @@ if (t) %jika t true, yang artinya elemen warna saling berdekatan klusternya
         end
     end
     ok = [jM, jH, jB];
-    ok = sum(ok,2);
+    ok = sum(ok,2)*100;
 else 
-    ok = 0;
+    ok = 1000;
 end
-    
+hasil = ok;    
