@@ -1,6 +1,6 @@
 clear;
 close all;
-asli = imread('contoh1.jpg');
+asli = imread('is1.png');
 %asli = filtermedian(asli1,1);
 % figure
 % imshow(asli,[])
