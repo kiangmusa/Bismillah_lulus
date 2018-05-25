@@ -1,4 +1,4 @@
- function hasilakhir = cobauy2yoi(asli);
+ function [hasilakhir,label2] = kmeansA(asli);
 % clear;
 % close all;
 %asli1 = imread('is1.png');
@@ -80,7 +80,6 @@ while(s~=0)
     s = sum(sum(centro-fin,2));
 end
 
-label1=[];
 % for i=1:size(label,1)
 %     for j=1:size(label,2)
 %         label1(i,j)=label(i,j)*2;
@@ -88,8 +87,9 @@ label1=[];
 % end
 
 %pixel_labels = reshape(label,baris,kolom);
-figure
-imshow(label,[]);
-
+% figure
+% imshow(label,[]);
+hasilakhir = fin;
+label2 = label;
 % for i=1:baris
 %     for j=1:kolom

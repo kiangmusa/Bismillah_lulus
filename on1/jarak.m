@@ -1,15 +1,19 @@
-%function hasil = jarak(w1,w2)
+function hasil = jarak(w1,w2)
 
 % iM = [0 45 95 125 165 195 225 255];
 % iH = [0 95 115 135 155 175 195 215 235 255];
 % iB = [0 25 65 105 145 185 215 255];
 
+% iM = [0 45 90 135 180 225 255];
+% iH = [0 45 90 135 180 225 255];
+% iB = [0 45 90 135 180 225 255];
+
 iM = [0 60 120 180 255];
 iH = [0 60 120 180 255];
 iB = [0 60 120 180 255];
 
-w1 = [239 156 114]; %warna 1
-w2 = [251 184 126]; %warna 2
+% w1 = [254 254 254]; %warna 1
+% w2 = [254 254 254]; %warna 2
 
 d1 = cariKluster(iM,iH,iB,w1); %fungsi menentukan letak kluster dr w1
 d2 = cariKluster(iM,iH,iB,w2); %fungsi menentukan letak kluster dr w2 
