@@ -1,12 +1,12 @@
 clear;
 close all;
-he = imread('contoh1.jpg');
+he = imread('is7.jpg');
 % Reading and displaying image %
 
-imshow(he), title('LISS 4 + CARTOSAT 1 fused image');
-text(size(he,2),size(he,1)+15,...
-'Image courtesy of RS and GIS , Civil Engg, MANIT Bhopal,INDIA', ...
-'FontSize',7,'HorizontalAlignment','right');
+% imshow(he), title('LISS 4 + CARTOSAT 1 fused image');
+% text(size(he,2),size(he,1)+15,...
+% 'Image courtesy of RS and GIS , Civil Engg, MANIT Bhopal,INDIA', ...
+% 'FontSize',7,'HorizontalAlignment','right');
 %%
 % Creating color transformation from sRGB to L*a*b %
 cform = makecform('srgb2lab');
@@ -23,11 +23,33 @@ ncols = size(ac,2);
 ac = reshape(ac,nrows*ncols,3);
 % No of clusters to be created with five iterations %
 nColors =8;
+kotak = zeros(200,200,3);
 [cluster_idx cluster_center] = kmeans(ac,nColors);
-% Reshaping and showing the clusters 
 pixel_labels = reshape(cluster_idx,nrows,ncols);
-imshow(pixel_labels,[]), title('image labeled by cluster index');
-jum = 0;
+P_A = size(he,1);
+P_B = size(he,2);
+image2(1:P_A,1:P_B,1:3)=0;
+image2 = uint8(image2);
+% Reshaping and showing the clusters 
+for i=1:nColors
+    kotak((((i-1)*25)+1):(i*25), 1:200,1)= cluster_center(i,1);
+    kotak((((i-1)*25)+1):(i*25), 1:200,2)= cluster_center(i,2);
+    kotak((((i-1)*25)+1):(i*25), 1:200,3)= cluster_center(i,3);
+    [baris, kolom] = find(pixel_labels(:,:)==i);
+    for j=1:length(baris)
+        a = baris(j);
+        b = kolom(j);
+        image2(a,b,1)=cluster_center(i,1);
+        image2(a,b,2)=cluster_center(i,2);
+        image2(a,b,3)=cluster_center(i,3);
+
+    end
+end
+    figure
+imshow(uint8(kotak))
+figure
+imshow(image2)
+% jum = 0;
 R = pixel_labels;
 G = pixel_labels;
 B = pixel_labels;
@@ -36,37 +58,36 @@ kolom = size(pixel_labels,2);
 for i=1:size(pixel_labels,1)
     for j=1:size(pixel_labels,2)
         if(pixel_labels(i,j)==1)
-            R(i,j)=he(i,j,1);
-            G(i,j)=he(i,j,2);
-            B(i,j)=he(i,j,3);
-        elseif(pixel_labels(i,j)==2)
-            R(i,j)=he(i,j,1);
-            G(i,j)=he(i,j,2);
-            B(i,j)=he(i,j,3);
-            if(G(i,j)>255)
-                G(i,j)=255;
-            end
-        elseif(pixel_labels(i,j)==3)
-            R(i,j)=he(i,j,1);
-            G(i,j)=he(i,j,2);
-            B(i,j)=he(i,j,3);
-        elseif(pixel_labels(i,j)==4)
-            R(i,j)=he(i,j,1);
-            G(i,j)=he(i,j,2);
-            B(i,j)=he(i,j,3);
-        elseif(pixel_labels(i,j)==5)
-            R(i,j)=he(i,j,1);
-            G(i,j)=he(i,j,2);
-            B(i,j)=he(i,j,3);
+            R(i,j)=he(i,j,1)+40;
+            G(i,j)=he(i,j,2)-50;
+            B(i,j)=he(i,j,3)+40;
+%         elseif(pixel_labels(i,j)==2)
+%             R(i,j)=he(i,j,1);
+%             G(i,j)=he(i,j,2);
+%             B(i,j)=he(i,j,3);
+%             if(G(i,j)>255)
+%                 G(i,j)=255;
+%             end
+%         elseif(pixel_labels(i,j)==3)
+%             R(i,j)=he(i,j,1);
+%             G(i,j)=he(i,j,2);
+%             B(i,j)=he(i,j,3);
+%         elseif(pixel_labels(i,j)==4)
+%             R(i,j)=he(i,j,1);
+%             G(i,j)=he(i,j,2);
+%             B(i,j)=he(i,j,3);
+%         elseif(pixel_labels(i,j)==5)
+%             R(i,j)=he(i,j,1);
+%             G(i,j)=he(i,j,2);
+%             B(i,j)=he(i,j,3);
         end
     end
 end
+% 
+% figure
+% imshow(he)
+% figure
 
-figure
-imshow(he)
-figure
-gambar = cat(3, uint8(R), uint8(G), uint8(B));
-imshow(gambar)
 %%
 % creating five element array %
 % segmented_images = cell(5);
