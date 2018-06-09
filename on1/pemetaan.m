@@ -25,7 +25,7 @@ while a ~=0
             w1 = (centroB(:,i)');
             w2 = (centroB(:,j)');
             hit = jarak(w1,w2);
-            if(hit<100)
+            if(hit>30 && hit<100)
                 a = a+1;
                 if(centroB(1,j)+5<=255)
                     C(1,j)=C(1,j)+5;

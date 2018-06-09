@@ -8,7 +8,7 @@
 baris = size(asli,1);
 kolom = size(asli,2);
 asli=double(asli);
-Kl = 5;
+Kl = 8;
 
 
 %%
@@ -24,34 +24,34 @@ Kl = 5;
 
 %%
 %centroid tetap dengan k = 8
-% centro = zeros(3,Kl);
-% first = -17;
-% for i=1:Kl
-%     first = first+32;
-%     centro(1:3,i)=first;
-% end
+centro = zeros(3,Kl);
+first = -17;
+for i=1:Kl
+    first = first+32;
+    centro(1:3,i)=first;
+end
 
 %%
 %centro awal ditentukan
-centro(1,1) = 255;
-centro(2,1) = 0;
-centro(3,1) = 0;
-
-centro(1,2) = 0;
-centro(2,2) = 255;
-centro(3,2) = 0;
-
-centro(1,3) = 0;
-centro(2,3) = 0;
-centro(3,3) = 255;
-
-centro(1,4) = 0;
-centro(2,4) = 0;
-centro(3,4) = 0;
-
-centro(1,5) = 255;
-centro(2,5) = 255;
-centro(3,5) = 255;
+% centro(1,1) = 255;
+% centro(2,1) = 0;
+% centro(3,1) = 0;
+% 
+% centro(1,2) = 0;
+% centro(2,2) = 255;
+% centro(3,2) = 0;
+% 
+% centro(1,3) = 0;
+% centro(2,3) = 0;
+% centro(3,3) = 255;
+% 
+% centro(1,4) = 0;
+% centro(2,4) = 0;
+% centro(3,4) = 0;
+% 
+% centro(1,5) = 255;
+% centro(2,5) = 255;
+% centro(3,5) = 255;
 % vwx=centro;
 centro=double(centro);
 % abc= zeros(3,Kl);

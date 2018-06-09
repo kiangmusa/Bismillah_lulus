@@ -1,11 +1,11 @@
-close all;
-clear;
-image = imread('is6.jpg');
-nColors =8;
+% close all;
+% clear;
+ image = imread('is1.png');
+% nColors =8;
 % [cluster_idx cluster_center] = kmeans(image,nColors);
 [centro1,label] = kmeansA(image);
 per = pemetaan(centro1);
-Kl = 5;
+Kl = 8;
 P_A = size(image,1);
 P_B = size(image,2);
 image2(1:P_A,1:P_B,1:3)=0;
