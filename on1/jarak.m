@@ -1,4 +1,4 @@
- function hasil = jarak(w1,w2)
+function hasil = jarak(w1,w2)
 
 % iM = [0 45 95 125 165 195 225 255];
 % iH = [0 95 115 135 155 175 195 215 235 255];
