@@ -1,7 +1,6 @@
 % close all;
 % clear;
- image = imread('is1.png');
- kluster = 
+ image = imread('g12-8.jpg');
 % nColors =8;
 % [cluster_idx cluster_center] = kmeans(image,nColors);
 [centro1,label] = kmeansA(image);
