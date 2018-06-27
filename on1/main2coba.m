@@ -1,11 +1,13 @@
-% close all;
-% clear;
- image = imread('g6-73.jpg');
+close all;
+clear;
+image = imread('g9-45.jpg');
+figure
+imshow(image)
 % nColors =8;
 % [cluster_idx cluster_center] = kmeans(image,nColors);
-[centro1,label] = kmeansA(image);
+[centro1,label] = kmeans2(image);
 per = pemetaan(centro1);
-Kl = 8;
+Kl = size(centro1,2);
 P_A = size(image,1);
 P_B = size(image,2);
 image2(1:P_A,1:P_B,1:3)=0;

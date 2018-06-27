@@ -71,7 +71,22 @@ while(s~=0)
 end
 pixel_labels = reshape(label,baris,kolom);
 imshow(pixel_labels,[]);
+nColors =8;
+kotak = zeros(200,200,3);
+for i=1:nColors
+    kotak((((i-1)*25)+1):(i*25), 1:200,1)= cluster_center(i,1);
+    kotak((((i-1)*25)+1):(i*25), 1:200,2)= cluster_center(i,2);
+    kotak((((i-1)*25)+1):(i*25), 1:200,3)= cluster_center(i,3);
+    [baris, kolom] = find(pixel_labels(:,:)==i);
+    for j=1:length(baris)
+        a = baris(j);
+        b = kolom(j);
+        image2(a,b,1)=cluster_center(i,1);
+        image2(a,b,2)=cluster_center(i,2);
+        image2(a,b,3)=cluster_center(i,3);
 
+    end
+end
 % for i=1:baris
 %     for j=1:kolom
     

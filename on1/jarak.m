@@ -117,4 +117,4 @@ if (t) %jika t true, yang artinya elemen warna saling berdekatan klusternya
 else 
     ok = 1000;
 end
-hasil = ok;    
+hasil = ok;

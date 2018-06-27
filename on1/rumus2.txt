@@ -1,0 +1,1 @@
+winopen('nama file); open excel lewat matlab

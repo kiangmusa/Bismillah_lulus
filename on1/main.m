@@ -1,6 +1,6 @@
 clear;
 close all;
-he = imread('is7.jpg');
+he = imread('g12-8.jpg');
 % Reading and displaying image %
 
 % imshow(he), title('LISS 4 + CARTOSAT 1 fused image');
