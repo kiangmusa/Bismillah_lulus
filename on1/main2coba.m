@@ -1,6 +1,6 @@
 close all;
 clear;
-image = imread('g9-45.jpg');
+image = imread('is1.png');
 figure
 imshow(image)
 % nColors =8;

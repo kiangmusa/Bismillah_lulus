@@ -107,7 +107,7 @@ while(s ~= 0 || index0~=0)
             Rc(1,1) = asli(i,j,1);
             Rc(2,1) = asli(i,j,2);
             Rc(3,1) = asli(i,j,3);
-            R = double( repmat( Rc( :, 1),1,Kl));
+            R = double(repmat( Rc( :, 1),1,Kl));
             Rk = R - centro;
             Rsum = sum(Rk.^2,1);
             hasil = sqrt(Rsum);
