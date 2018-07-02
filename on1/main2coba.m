@@ -1,12 +1,13 @@
 close all;
-clear;
-image = imread('is1.png');
+% clear;
+image = imread('g1-7.jpg');
 figure
 imshow(image)
 % nColors =8;
 % [cluster_idx cluster_center] = kmeans(image,nColors);
 [centro1,label] = kmeans2(image);
-per = pemetaan(centro1);
+
+per = pemetaanV2(centro1);
 Kl = size(centro1,2);
 P_A = size(image,1);
 P_B = size(image,2);
@@ -57,3 +58,18 @@ imshow(uint8(kotak))
 figure 
 imshow(uint8(kotak2))
 
+iM1 = [0 51 103 155 207 255];
+iH1 = [0 51 103 155 207 255];
+iB1 = [0 51 103 155 207 255];
+do =[];
+P_B1= size(per,2);
+for i=1:P_B1-1
+    for j=i+1:P_B1
+        w1 = (per(:,i)');
+        w2 = (per(:,j)');
+        hit = jarakV2(w1,w2,iM1,iH1,iB1);
+        do = [do
+            hit i j];
+    end
+end
+f = find(do(:,1)<100);

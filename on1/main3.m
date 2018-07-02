@@ -1,8 +1,8 @@
 clear;
 close all;
 
-asli= imread('is1.png');
-% asli = asli1(1:200,1:200,:); 
+asli1= imread('G1-7.jpg');
+asli = asli1(50:100,50:100,:); 
 % asli = hasil;
 baris = size(asli,1);
 kolom = size(asli,2);
@@ -12,16 +12,17 @@ a(2:baris+1,2:kolom+1,2)=asli(:,:,2);
 a(2:baris+1,2:kolom+1,3)=asli(:,:,3);
 z = zeros(baris,kolom,3);
 g=0;
-s = 10;
+s = 20;
 d=[];
-per = 31;
+per = 101;
+per1 = 5
 hit = 0;
-% while (per>30)
+ while (per>100) || per1~=per
     hit = hit+1;
+    per1 = per;
     per = 0;
     for i = 2 : size(a,1)-2
         for j = 2 : size(a,2)-2
-            
             if(i-1==1) 
                 a(i-1,j-1:j+1,1)=a(i,j,1);
                 a(i-1,j-1:j+1,2)=a(i,j,2);
@@ -58,7 +59,7 @@ hit = 0;
     %                 w2(1,2) = b(k,l,2);
     %                 w2(1,3) = b(k,l,3);
 
-                    while(c>0)
+%                     while(c>0)
                         
                         w2(1,1) = b(k,l,1);
                         w2(1,2) = b(k,l,2);
@@ -66,14 +67,16 @@ hit = 0;
                         w1;
                         w2;
                         ok = jarak(w1,w2);
-                        if(ok<100 && ok>30)
+                        i
+                        j
+                        if(ok<100 && ok>50)
                             per = per+1;
                             ulang = ulang+1;
                             
                             d=[d;
                                 i j k l];
                             g=g+1;
-                            if ulang<10
+%                             if ulang<10
                                 if(b(k,l,1)+s<=255)
                                     b(k,l,1)=b(k,l,1)+s;
                                 else if (b(k,l,2)-s>=0)
@@ -83,19 +86,19 @@ hit = 0;
                                         end
                                     end
                                 end
-                            else  b(k,l,3)=b(k,l,3)+s;
-                            c = 1;
-                            end
-                        else 
-                            c = -1;
+%                             else  b(k,l,3)=b(k,l,3)+s;
+%                             c = 1;
+%                             end
+%                         else 
+%                             c = -1;
                         end
-                    end
+%                     end
                 end
             end
             a(i-1:i+1,j-1:j+1,:) = b;
         end
     end
-% end
+end
 hasil = uint8(a(2:baris+1,2:kolom+1,:));
 imshow(hasil);
         

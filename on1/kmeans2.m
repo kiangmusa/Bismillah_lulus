@@ -8,28 +8,28 @@
 baris = size(asli,1);  %panjang dari gambar
 kolom = size(asli,2); %lebar dari gambar
 asli=double(asli);
-Kl = 4; %jumlah K awal
+Kl = 12; %jumlah K awal
 
 
 %%
 % centroid random
-rans(1,1:Kl)=randi([1 baris],1,Kl);
-rans(2,1:Kl)=randi([1 kolom],1,Kl);
-centro=zeros(3,Kl);
-for i=1:Kl
-    centro(1,i)=asli(rans(1,i),rans(2,i),1);
-    centro(2,i)=asli(rans(1,i),rans(2,i),2);
-    centro(3,i)=asli(rans(1,i),rans(2,i),3);
-end
+% rans(1,1:Kl)=randi([1 baris],1,Kl);
+% rans(2,1:Kl)=randi([1 kolom],1,Kl);
+% centro=zeros(3,Kl);
+% for i=1:Kl
+%     centro(1,i)=asli(rans(1,i),rans(2,i),1);
+%     centro(2,i)=asli(rans(1,i),rans(2,i),2);
+%     centro(3,i)=asli(rans(1,i),rans(2,i),3);
+% end
 
 %%
-% centroid tetap dengan k = 4
+% centroid tetap dengan k = 8
 % centro = zeros(3,Kl);
-% first = -17;
-% for i=1:Kl
-%     first = first+32;
-%     centro(1:3,i)=first;
-% end
+first = -10;
+for i=1:Kl
+    first = first+22;
+    centro(1:3,i)=first;
+end
 
 %%
 %centro awal ditentukan
@@ -72,7 +72,7 @@ while(s ~= 0 || index0~=0)
         tot = sum(fin);
         fc = find(tot(:)==0);
         if(size(fc,1)>0)
-            ct = ct+1
+%             ct = ct+1
             for i=1:size(fc,1)
                 [abaris,akolom] = find(label(:,:)==0);
                 rar = randi([1, size(abaris,1)],1);
@@ -85,7 +85,7 @@ while(s ~= 0 || index0~=0)
                 Kl = size(fin,2);
             end
         else 
-            cs = cs+1
+%             cs = cs+1
             [abaris,akolom] = find(label(:,:)==0);
             rar = randi([1, size(abaris,1)],1);
             Rcentro = asli(abaris(rar), akolom(rar),1);
@@ -114,7 +114,7 @@ while(s ~= 0 || index0~=0)
             [urut, index] = sort(hasil);
             %f = hasil(index(1));
             %f = find(hasil(1,:)==min(hasil));
-            if(hasil(index(1)) < 50)
+            if(hasil(index(1)) < 75)
                 label(i, j) = index(1);
 %             else 
 %                 label(i,j)=9;
