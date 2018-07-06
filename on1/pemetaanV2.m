@@ -16,6 +16,9 @@ iM1 = [0 51 103 155 207 255];
 iH1 = [0 51 103 155 207 255];
 iB1 = [0 51 103 155 207 255];
 
+% iM1 = [0 45 95 125 165 195 225 255];
+% iH1 = [0 95 115 135 155 175 195 215 235 255];
+% iB1 = [0 25 65 105 145 185 215 255];
 sM = size(iM1,2);
 sH = size(iH1,2);
 sB = size(iB1,2);
@@ -30,6 +33,7 @@ P_B = size(centroB,2);
 se = 10;
 centro2 = centroB;
 a =1;
+r = zeros(1,P_B);
 while a >0
 % for b=1:40
     a = 0;
@@ -39,44 +43,43 @@ while a >0
             w2 = (centroB(:,j)');
             hit = jarakV2(w1,w2,iM1,iH1,iB1);
             hit2 = 50;
-            if(hit>50 && hit<100)
+            if(hit<100)
                 a = a+1;
                 b=0;
                 while(hit2<100)                  
                   if(d==1)
-                    if(centroB(1,j)+se<255)
-                        centroB(1,j)=centroB(1,j)+se;                        
-                    else if (centroB(2,j)-se>0)
-                        centroB(2,j)=centroB(2,j)-se;                        
-                        else if(centroB(3,j)-se>0)
-                            centroB(3,j)=centroB(3,j)-se;
-                            b=b+1;
+                    if(centroB(1,i)+se<255)
+                        centroB(1,i)=centroB(1,i)+se;                        
+                    else if (centroB(2,i)-se>0)
+                        centroB(2,i)=centroB(2,i)-se;                        
+                        else if(centroB(3,i)-se>0)
+                            centroB(3,i)=centroB(3,i)-se;
                             end
                         end
                     end
                   else if (d==2)
-                        if(centroB(2,j)+se<255)
-                            centroB(2,j)=centroB(2,j)+se;
+                        if(centroB(2,i)+se<255)
+                            centroB(2,i)=centroB(2,i)+se;
                             b=b+1;
-                        else if (centroB(3,j)-se>0)
-                            centroB(3,j)=centroB(3,j)-se;
+                        else if (centroB(3,i)-se>0)
+                            centroB(3,i)=centroB(3,i)-se;
                             b=b+1;
-                            else if(centroB(1,j)-se>0)
-                                centroB(1,j)=centroB(1,j)-se;
+                            else if(centroB(1,i)-se>0)
+                                centroB(1,i)=centroB(1,i)-se;
                                 b=b+1;
                                 end
                             end
                         end
                       else if(d==3)
-                            if(centroB(3,j)+se<255)
-                                centroB(3,j)=centroB(3,j)+se;
+                            if(centroB(3,i)+se<255)
+                                centroB(3,i)=centroB(3,i)+se;
                                 b=b+1;
-                            else if (centroB(1,j)-se>0)
-                                centroB(1,j)=centroB(1,j)-se;
+                            else if (centroB(1,i)-se>0)
+                                centroB(1,i)=centroB(1,i)-se;
                                 b=b+1;
-                                else if(centroB(2,j)-se>0)
-                                    centroB(2,j)=centroB(2,j)-se;
-                                    b=b+1;
+                                else if(centroB(2,i)-se>0)
+                                    centroB(2,i)=centroB(2,i)-se;
+                                    
                                 end
                             end
                             end

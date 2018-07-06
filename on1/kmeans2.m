@@ -8,7 +8,7 @@
 baris = size(asli,1);  %panjang dari gambar
 kolom = size(asli,2); %lebar dari gambar
 asli=double(asli);
-Kl = 12; %jumlah K awal
+Kl = 8; %jumlah K awal
 
 
 %%
@@ -25,9 +25,9 @@ Kl = 12; %jumlah K awal
 %%
 % centroid tetap dengan k = 8
 % centro = zeros(3,Kl);
-first = -10;
+first = -17;
 for i=1:Kl
-    first = first+22;
+    first = first+32;
     centro(1:3,i)=first;
 end
 
@@ -114,7 +114,7 @@ while(s ~= 0 || index0~=0)
             [urut, index] = sort(hasil);
             %f = hasil(index(1));
             %f = find(hasil(1,:)==min(hasil));
-            if(hasil(index(1)) < 75)
+            if(hasil(index(1)) < 50)
                 label(i, j) = index(1);
 %             else 
 %                 label(i,j)=9;

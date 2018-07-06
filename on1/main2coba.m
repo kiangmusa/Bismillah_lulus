@@ -1,6 +1,6 @@
 close all;
-% clear;
-image = imread('g1-7.jpg');
+clear;
+image = imread('g11-29.jpg');
 figure
 imshow(image)
 % nColors =8;
@@ -61,6 +61,9 @@ imshow(uint8(kotak2))
 iM1 = [0 51 103 155 207 255];
 iH1 = [0 51 103 155 207 255];
 iB1 = [0 51 103 155 207 255];
+% iM1 = [0 45 95 125 165 195 225 255];
+% iH1 = [0 95 115 135 155 175 195 215 235 255];
+% iB1 = [0 25 65 105 145 185 215 255];
 do =[];
 P_B1= size(per,2);
 for i=1:P_B1-1
