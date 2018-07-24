@@ -1,7 +1,7 @@
 clear;
 close all;
 dr=0;
-asli1= imread('g11-29.jpg');
+asli1= imread('g3-26.jpg');
 asli = asli1(:,:,:);
 figure 
 imshow(asli);

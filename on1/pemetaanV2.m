@@ -1,4 +1,4 @@
- function [per,up,d] = pemetaanV2(centro)
+ function [per,up,d,tot] = pemetaanV2(centro)
 % close all;
 % clear;
 % image = imread('is1.png');
@@ -36,10 +36,11 @@ centroB = (centro);
 P_A = size(centroB,1);
 P_B = size(centroB,2);
 u=zeros(P_A,P_B);
-se = 10;
+se = 20;
 centro2 = centroB;
 a =1;
 r = zeros(1,P_B);
+tot = 0;
 while a >0
 % for b=1:40
     a = 0;
@@ -50,6 +51,7 @@ while a >0
             hit = jarakV2(w1,w2,iM1,iH1,iB1);
             hit2 = hit;
             if(hit<100)
+                tot = tot+1;
                 a = a+1;
                 b=0;
                 while(hit2<100)                  
