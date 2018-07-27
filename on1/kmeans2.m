@@ -115,7 +115,7 @@ while(s ~= 0 || index0~=0)
             [urut, index] = sort(hasil);
             %f = hasil(index(1));
             %f = find(hasil(1,:)==min(hasil));
-            if(hasil(index(1)) < 50)
+            if(hasil(index(1)) < 75)
                 label(i, j) = index(1);
 %             else 
 %                 label(i,j)=9;

@@ -1,19 +1,21 @@
 close all;
 clear;
-namfil = {'g1-7.jpg','g2-6.jpg','g3-26.jpg', 'g4-15.jpg', 'g5-6.jpg','g6-73.jpg', 'g7-5.jpg', 'g8-16.jpg', 'g9-45.jpg','g10-12.jpg','g11-29.jpg','g12-8.jpg', 'g13-74.jpg', 'g14-57.jpg','g15-2.jpg'};
-ac = cell(15,1);
+namfil = {'bunga3.jpg'};
+%'g1-7.jpg','g2-6.jpg','g3-26.jpg', 'g4-15.jpg', 'g5-6.jpg','g6-73.jpg', 'g7-5.jpg', 'g8-16.jpg', 'g9-45.jpg','g10-12.jpg','g11-29.jpg','g12-8.jpg', 'g13-74.jpg', 'g14-57.jpg','g15-2.jpg'};
+ss = size(namfil,1);
+ac = cell(ss,1);
 for i=1:size(namfil,2) 
     d = {imread(namfil{i})};
     ac(i) = d;
 end
-centrod = cell(15,1);
-labeld = cell(15,1);
-waktu = zeros(15,1);
-recolor1 = cell(15,1);
-recolor2 = cell(15,1);
-kotakre1 = cell(15,1);
-kotakre2 = cell(15,1);
-for im=1:15
+centrod = cell(ss,1);
+labeld = cell(ss,1);
+waktu = zeros(ss,1);
+recolor1 = cell(ss,1);
+recolor2 = cell(ss,1);
+kotakre1 = cell(ss,1);
+kotakre2 = cell(ss,1);
+for im=1:1
     im
     tic
     image = [];

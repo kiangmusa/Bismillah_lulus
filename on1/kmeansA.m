@@ -8,7 +8,7 @@
 baris = size(asli,1);
 kolom = size(asli,2);
 asli=double(asli);
-Kl = 8;
+Kl = 20;
 
 
 %%
@@ -24,34 +24,38 @@ Kl = 8;
 
 %%
 %centroid tetap dengan k = 8
-centro = zeros(3,Kl);
-first = -17;
-for i=1:Kl
-    first = first+32;
-    centro(1:3,i)=first;
-end
+% centro = zeros(3,Kl);
+% first = -17;
+% for i=1:Kl
+%     first = first+32;
+%     centro(1:3,i)=first;
+% end
 
 %%
 %centro awal ditentukan
-% centro(1,1) = 255;
-% centro(2,1) = 0;
-% centro(3,1) = 0;
-% 
-% centro(1,2) = 0;
-% centro(2,2) = 255;
-% centro(3,2) = 0;
-% 
-% centro(1,3) = 0;
-% centro(2,3) = 0;
-% centro(3,3) = 255;
-% 
-% centro(1,4) = 0;
-% centro(2,4) = 0;
-% centro(3,4) = 0;
-% 
-% centro(1,5) = 255;
-% centro(2,5) = 255;
-% centro(3,5) = 255;
+centro(1:3,1) = [230;25;75];
+centro(1:3,2) = [60, 180, 75];
+centro(1:3,3) = [255, 225, 25];
+centro(1:3,4) = [0, 130, 200];
+centro(1:3,5) = [245, 130, 48];
+centro(1:3,6) = [145, 30, 180];
+centro(1:3,7) = [70, 240, 240];
+centro(1:3,8) = [240, 50, 230];
+centro(1:3,9) = [210, 245, 60];
+centro(1:3,10) = [250, 190, 190];
+centro(1:3,11) = [0, 128, 128];
+centro(1:3,12) = [230, 190, 255];
+centro(1:3,13) = [170, 110, 40];
+centro(1:3,14) = [255, 250, 200];
+centro(1:3,15) = [128, 0, 0];
+centro(1:3,16) = [170, 255, 195];
+centro(1:3,17) = [128, 128, 0];
+centro(1:3,18) = [255, 215, 180];
+centro(1:3,19) = [0, 0, 128];
+centro(1:3,20) = [128, 128, 128];
+centro(1:3,21) = [255, 255, 255];
+centro(1:3,22) = [0, 0, 0];
+
 % vwx=centro;
 centro=double(centro);
 % abc= zeros(3,Kl);
