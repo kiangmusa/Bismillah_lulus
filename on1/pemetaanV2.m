@@ -186,7 +186,6 @@ while a >0
             end
         end
     end
-    a
 end
 up=u;
 per = centroB;
