@@ -1,4 +1,4 @@
-function [hasilakhir,label2] = kmeansA(asli);
+function [hasilakhir,label2] = kmeansB(asli);
 % clear;
 % close all;
 % asli = imread('g1-7.jpg');
@@ -8,6 +8,8 @@ function [hasilakhir,label2] = kmeansA(asli);
 baris = size(asli,1);
 kolom = size(asli,2);
 asli=double(asli);
+
+
 
 %%
 % centroid random
@@ -54,38 +56,38 @@ asli=double(asli);
 % centro(1:3,21) = [255;255;255];
 % centro(1:3,22) = [0;0;0];
 %%
-Kl = 26;
+Kl = 50;
 centro = zeros(3,Kl);
 first =1;
-second = 31;
-for i=1:8
+second = 15;
+for i=1:16
     rr = randi([first second],1);
     centro(1,i)=rr;
     centro(2:3,i) = 0;
-    first = first+31;
-    second = second+31;
+    first = first+15;
+    second = second+15;
 end
 first =1;
-second = 31;
-for i=9:16
+second = 15;
+for i=17:32
     rr = randi([first second],1);
     centro(2,i)=rr;
     centro(1,i) = 0;
     centro(3,i) = 0;
-    first = first+31;
-    second = second+31;
+    first = first+15;
+    second = second+15;
 end
 first =1;
-second = 31;
-for i=17:24
+second = 15;
+for i=33:48
     rr = randi([first second],1);
     centro(3,i)=rr;
     centro(1:2,i) = 0;
-    first = first+31;
-    second = second+31;
+    first = first+15;
+    second = second+15;
 end
-centro(1:3,25) = [255;255;255];
-centro(1:3,26) = [0;0;0];
+centro(1:3,49) = [255;255;255];
+centro(1:3,50) = [0;0;0];
 % vwx=centro;
 centro=double(centro);
 % abc= zeros(3,Kl);
@@ -130,21 +132,21 @@ while(s ~= 0)
         Gcentro = floor(mean(sum(ab(:,1,2),2)));
         Bcentro = floor(mean(sum(ab(:,1,3),2)));
         %tambahin random NaN
-%         if(~isnan(Rcentro))
-%               hit = hit+1;
-% %             rar = randi([1, baris],1);
-% %             rak = randi([1, kolom],1);
-%               fin = [fin [Rcentro; Gcentro ;Bcentro]];
-%         end
-         if(isnan(Rcentro))
-            rar = randi([1, baris],1);
-            rak = randi([1, kolom],1);
-            Rcentro = asli(rar, rak,1);
-            Gcentro = asli(rar, rak,2);
-            Bcentro = asli(rar, rak,3);
+        if(~isnan(Rcentro))
+              hit = hit+1;
+%             rar = randi([1, baris],1);
+%             rak = randi([1, kolom],1);
+              fin = [fin [Rcentro; Gcentro ;Bcentro]];
         end
+%          if(isnan(Rcentro))
+%             rar = randi([1, baris],1);
+%             rak = randi([1, kolom],1);
+%             Rcentro = asli(rar, rak,1);
+%             Gcentro = asli(rar, rak,2);
+%             Bcentro = asli(rar, rak,3);
+%         end
         
-        fin = [fin [Rcentro; Gcentro ;Bcentro]];
+%         fin = [fin [Rcentro; Gcentro ;Bcentro]];
     end
 %     fin=fin';
 %     s2 = sum(fin);
@@ -162,12 +164,11 @@ while(s ~= 0)
 %             end
 %          end
 %     end
-%     if(hit ~= Kl)
-%         s = sum(sum(fin));
-%     else 
+    if(hit ~= Kl)
+        s = sum(sum(fin));
+    else 
         s = sum( sum(centro - fin,2));
-%     end
-%     hit == Kl
+    end
 end
 
 % for i=1:size(label,1)
