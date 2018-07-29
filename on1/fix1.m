@@ -22,7 +22,7 @@ function varargout = fix1(varargin)
 
 % Edit the above text to modify the response to help fix1
 
-% Last Modified by GUIDE v2.5 23-Jun-2018 14:42:10
+% Last Modified by GUIDE v2.5 29-Jul-2018 17:13:37
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -90,7 +90,27 @@ function r = getGlobalxsl
     global b
     r = b;  
 
-
+function setGlobalKlusterG(val)
+    global e
+    e = val;
+    
+function k = getGlobalKlusterG
+    global e
+    k = e;  
+function setGlobalKlusterB(val)
+    global f
+    f = val;
+    
+function k = getGlobalKlusterB
+    global f
+    k = f;  
+function setGlobalImage(val)
+    global g
+    g = val;
+    
+function k = getGlobalImage
+    global g
+    k = g;  
 function edit1_Callback(hObject, eventdata, handles)
 % hObject    handle to edit1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -149,15 +169,40 @@ function PBBrowseCitra_Callback(hObject, eventdata, handles)
 % hObject    handle to PBBrowseCitra (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+[filename pathname] = uigetfile('*.jpg','File Selector');
+img = imread(filename)
+setGlobalImage(img);
+axes(handles.axes1);
+imshow(img);
+fname = 'kluster.xlsx';
+[R,G,B]=simpanKlWarna(fname);
+setGlobalKlusterR(R');
+setGlobalKlusterG(G');
+setGlobalKlusterB(B');
 
 % --- Executes on button press in PBConvertCitra.
 function PBConvertCitra_Callback(hObject, eventdata, handles)
 % hObject    handle to PBConvertCitra (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
-
+img = getGlobalImage();
+R = getGlobalKlusterR;
+G = getGlobalKlusterG;
+B = getGlobalKlusterB;
+[waktu1,image12,image13,kotak11,kotak12]=mainA(img,R,G,B);
+[waktu2,image22,image23,kotak21,kotak22]=mainB(img,R,G,B);
+axes(handles.rec261);
+imshow(image12);
+axes(handles.rec262);
+imshow(image13);
+axes(handles.rec501);
+imshow(image22);
+axes(handles.rec502);
+imshow(image23);
+tulis1 = strcat(int2str(waktu1),' detik');
+set(handles.waktu26,'string',tulis1);
+tulis2 = strcat(int2str(waktu2),' detik');
+set(handles.waktu50,'string',tulis2);
 % --- Executes on button press in PBConvertCitra.
 function PBSimpanKluster_Callback(hObject, eventdata, handles)
 % hObject    handle to PBConvertCitra (see GCBO)
@@ -165,9 +210,10 @@ function PBSimpanKluster_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 fname = 'kluster.xlsx';
 [R,G,B]=simpanKlWarna(fname);
-tulis = strcat('Merah = ',int2str(R'));
-set(handles.EDKlusterR,'string',tulis);
-
+setGlobalKlusterR(R');
+setGlobalKlusterG(G');
+setGlobalKlusterB(B');
+msgbox('Kluster Buta Warna berhasil diperbaharui');
 function EDKlusterWarna_Callback(hObject, eventdata, handles)
 % hObject    handle to EDKlusterWarna (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -195,7 +241,7 @@ function PBEditKluster_Callback(hObject, eventdata, handles)
 % hObject    handle to PBEditKluster (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+winopen('kluster.xlsx');
 
 function EDKlusterR_Callback(hObject, eventdata, handles)
 % hObject    handle to EDKlusterR (see GCBO)
@@ -209,6 +255,116 @@ function EDKlusterR_Callback(hObject, eventdata, handles)
 % --- Executes during object creation, after setting all properties.
 function EDKlusterR_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to EDKlusterR (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function EDKlusterG_Callback(hObject, eventdata, handles)
+% hObject    handle to EDKlusterG (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of EDKlusterG as text
+%        str2double(get(hObject,'String')) returns contents of EDKlusterG as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function EDKlusterG_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to EDKlusterG (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function EDKlusterB_Callback(hObject, eventdata, handles)
+% hObject    handle to EDKlusterB (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of EDKlusterB as text
+%        str2double(get(hObject,'String')) returns contents of EDKlusterB as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function EDKlusterB_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to EDKlusterB (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in PBBTampilKl.
+function PBBTampilKl_Callback(hObject, eventdata, handles)
+% hObject    handle to PBBTampilKl (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% fname = 'kluster.xlsx';
+% [R,G,B]=simpanKlWarna(fname);
+R = getGlobalKlusterR()
+G = getGlobalKlusterG()
+B = getGlobalKlusterB()
+tulisR = strcat(int2str(R));
+set(handles.EDKlusterR,'string',tulisR);
+tulisG = strcat(int2str(G));
+set(handles.EDKlusterG,'string',tulisG);
+tulisB = strcat(int2str(B));
+set(handles.EDKlusterB,'string',tulisB);
+
+
+
+function waktu26_Callback(hObject, eventdata, handles)
+% hObject    handle to waktu26 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of waktu26 as text
+%        str2double(get(hObject,'String')) returns contents of waktu26 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function waktu26_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to waktu26 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function waktu50_Callback(hObject, eventdata, handles)
+% hObject    handle to waktu50 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of waktu50 as text
+%        str2double(get(hObject,'String')) returns contents of waktu50 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function waktu50_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to waktu50 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
