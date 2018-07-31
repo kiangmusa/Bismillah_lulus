@@ -19,9 +19,13 @@ function hasil = jarakV2(w1,w2,iM,iH,iB)
 % iM = [0 45 85 115 185 225 255];
 % iH = [0 15 35 55 75 95 115 135 155 175 195 215 235 255];
 % iB = [0 25 55 85 115 155 195 255];
+%Pak Adi
+% iM = [0 15 115 175 225 255];
+% iH = [0 25 65 105 155 185 225 255];
+% iB = [0 75 115 185 255];
 
-% w1 = [45 35 115]; %warna 1
-% w2 = [50 65 123]; %warna 2
+% w1 = [50 100 60]; %warna 1
+% w2 = [60 130 90]; %warna 2
 
 d1 = cariKluster(iM,iH,iB,w1); %fungsi menentukan letak kluster dr w1
 d2 = cariKluster(iM,iH,iB,w2); %fungsi menentukan letak kluster dr w2 

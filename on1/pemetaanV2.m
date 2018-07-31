@@ -26,13 +26,14 @@
 % iM1 = [0 15 115 175 225 255];
 % iH1 = [0 25 65 105 155 185 225 255];
 % iB1 = [0 75 115 185 255];
-iM1 = iM;
-iH1 = iH;
-iB1 = iB;
+
 % cluster buta warna Bu Widi
 % iM1 = [0 55 115 165 195 255];
 % iH1 = [0 5 35 55 75 95 125 145 155 175 205 225 255];
 % iB1 = [0 45 75 105 145 175 215 255];
+iM1 = iM;
+iH1 = iH;
+iB1 = iB;
 %% Proses pemetaan warna
 sM = size(iM1,2);
 sH = size(iH1,2);

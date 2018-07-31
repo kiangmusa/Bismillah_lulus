@@ -58,33 +58,24 @@ asli=double(asli);
 %%
 Kl = 50;
 centro = zeros(3,Kl);
-first =1;
-second = 15;
+first =7;
 for i=1:16
-    rr = randi([first second],1);
-    centro(1,i)=rr;
+    centro(1,i)=first;
     centro(2:3,i) = 0;
-    first = first+15;
-    second = second+15;
+    first = first+16;
 end
-first =1;
-second = 15;
+first =7;
 for i=17:32
-    rr = randi([first second],1);
-    centro(2,i)=rr;
+    centro(2,i)=first;
     centro(1,i) = 0;
     centro(3,i) = 0;
-    first = first+15;
-    second = second+15;
+    first = first+16;
 end
-first =1;
-second = 15;
+first =7;
 for i=33:48
-    rr = randi([first second],1);
-    centro(3,i)=rr;
+    centro(3,i)=first;
     centro(1:2,i) = 0;
-    first = first+15;
-    second = second+15;
+    first = first+16;
 end
 centro(1:3,49) = [255;255;255];
 centro(1:3,50) = [0;0;0];

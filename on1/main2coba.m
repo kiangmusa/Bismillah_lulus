@@ -1,6 +1,6 @@
 close all;
 clear;
-% namfil = {'g4-15.jpg'};
+% namfil = {'g1-7.jpg'};
 namfil={'g1-7.jpg','g2-6.jpg','g3-26.jpg', 'g4-15.jpg', 'g5-6.jpg','g6-73.jpg', 'g7-5.jpg', 'g8-16.jpg', 'g9-45.jpg','g10-12.jpg','g11-29.jpg','g12-8.jpg', 'g13-74.jpg', 'g14-57.jpg','g15-2.jpg'};
 ss = size(namfil,2);
 ac = cell(ss,1);
@@ -8,6 +8,20 @@ for i=1:size(namfil,2)
     d = {imread(namfil{i})};
     ac(i) = d;
 end
+% % cluster buta warna pak Dody
+% iM1 = [0 45 85 115 145 185 225 255];
+% iH1 = [0 15 35 55 75 95 115 135 155 175 195 215 235 255];
+% iB1 = [0 25 55 85 115 155 195 255];
+
+% cluster buta warna pak Ady
+iM1 = [0 15 115 175 225 255]; 
+iH1 = [0 25 65 105 155 185 225 255];
+iB1 = [0 75 115 185 255];
+
+% cluster buta warna Bu Widi
+% iM1 = [0 55 115 165 195 255];
+% iH1 = [0 5 35 55 75 95 125 145 155 175 205 225 255];
+% iB1 = [0 45 75 105 145 175 215 255];
 centrod = cell(ss,1);
 labeld = cell(ss,1);
 waktu = zeros(ss,1);
@@ -15,6 +29,7 @@ recolor1 = cell(ss,1);
 recolor2 = cell(ss,1);
 kotakre1 = cell(ss,1);
 kotakre2 = cell(ss,1);
+chan = cell(ss,1);
 for im=1:ss
     im
     tic
@@ -31,11 +46,14 @@ for im=1:ss
     [centro1,label] = kmeansB(image);
     centrod(im)={centro1};
     labeld(im)={label};
+%     label = labeld{im};
+%     centro1=centrod{im};
     per = [];
     up = [];
     de = 0;
     total = 0;
-    [per,up,de,total] = pemetaanV2(centro1);
+    [per,up,de,total] = pemetaanV2(centro1,iM1,iH1,iB1);
+    chan(im) = {up};
     Kl = size(centro1,2);
     P_A = size(image,1);
     P_B = size(image,2);
