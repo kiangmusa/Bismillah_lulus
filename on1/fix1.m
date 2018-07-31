@@ -199,10 +199,10 @@ axes(handles.rec501);
 imshow(image22);
 axes(handles.rec502);
 imshow(image23);
-tulis1 = strcat(int2str(waktu1),' detik');
-set(handles.waktu26,'string',tulis1);
-tulis2 = strcat(int2str(waktu2),' detik');
-set(handles.waktu50,'string',tulis2);
+% tulis1 = strcat(int2str(waktu1),' detik');
+% set(handles.waktu26,'string',tulis1);
+% tulis2 = strcat(int2str(waktu2),' detik');
+% set(handles.waktu50,'string',tulis2);
 % --- Executes on button press in PBConvertCitra.
 function PBSimpanKluster_Callback(hObject, eventdata, handles)
 % hObject    handle to PBConvertCitra (see GCBO)
