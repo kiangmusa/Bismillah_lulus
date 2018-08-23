@@ -53,6 +53,20 @@ centro2 = centroB;
 a =1;
 r = zeros(1,P_B);
 tot = 0;
+sun= zeros(P_B,P_B);
+% for i=1:P_B-1
+%     for j=i+1:P_B
+%         w1 = (centroB(:,i)');
+%         w2 = (centroB(:,j)');
+%         hit = jarakV2(w1,w2,iM1,iH1,iB1);
+%         if(hit >50 && hit < 100)
+%             sun(i,j) = 1;
+%         else if (hit < 50) 
+%             sun(i,j) = 0;
+%             else 
+%                 sun(i,j) = 2;
+%     end
+% end
 while a >0
 % for b=1:40
     a = 0;
@@ -62,7 +76,7 @@ while a >0
             w2 = (centroB(:,j)');
             hit = jarakV2(w1,w2,iM1,iH1,iB1);
             hit2 = hit;
-            if(hit>50 && hit<100)
+            if(hit<100) 
                 tot = tot+1;
                 a = a+1;
                 b=0;
